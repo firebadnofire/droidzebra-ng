@@ -21,6 +21,19 @@ jni/ - C code Zebra + mods
 src/ - Java code
 res/ - resource files
 
+Android Studio (Gradle) build
+-----------------------------
+
+This repository now includes a modern Gradle project layout so you can
+open the root folder in Android Studio and sync the `app` module.
+
+* Open Android Studio and choose **Open** on the repository root.
+* Ensure you have the Android NDK installed (NDK build is used).
+* Set the project SDK to Android 16 (API 35) or higher when prompted.
+
+The Gradle configuration keeps the legacy `project/` sources and JNI
+layout intact while exposing them through the `app` module.
+
 
 Current features:
 - Zebra engine
