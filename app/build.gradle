@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.shurik.droidzebra'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.shurik.droidzebra'
+        minSdk 24
+        targetSdk 35
+        versionCode 17
+        versionName '1.5.3'
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path file('../project/jni/Android.mk')
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile '../project/AndroidManifest.xml'
+            java.srcDirs = ['../project/src']
+            res.srcDirs = ['../project/res']
+            assets.srcDirs = ['../project/assets']
+            jni.srcDirs = ['../project/jni']
+            jniLibs.srcDirs = ['../project/libs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), '../project/proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    implementation files('../project/libs/android-support-v4.jar')
+}

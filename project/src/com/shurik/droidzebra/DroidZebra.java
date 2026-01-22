@@ -421,37 +421,36 @@ public class DroidZebra extends FragmentActivity
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if( !mIsInitCompleted ) return false;
+		int menuId = item.getItemId();
 		try {
-			switch (item.getItemId()) {
-			case R.id.menu_new_game:
+			if (menuId == R.id.menu_new_game) {
 				newGame();
 				return true;
-			case R.id.menu_quit:
+			} else if (menuId == R.id.menu_quit) {
 				showQuitDialog();
 				return true;
-			case R.id.menu_take_back:
+			} else if (menuId == R.id.menu_take_back) {
 				mZebraThread.undoMove();
 				return true;
-			case R.id.menu_take_redo:
+			} else if (menuId == R.id.menu_take_redo) {
 				mZebraThread.redoMove();
 				return true;
-			case R.id.menu_settings: {
+			} else if (menuId == R.id.menu_settings) {
 				// Launch Preference activity
 				Intent i = new Intent(this, SettingsPreferences.class);
 				startActivity(i);
-			} return true;
-			case R.id.menu_switch_sides: {
+				return true;
+			} else if (menuId == R.id.menu_switch_sides) {
 				switchSides();
-			} break;
-			case R.id.menu_donate: {
+			} else if (menuId == R.id.menu_donate) {
 				showDonateDialog();
-			} return true;
-			case R.id.menu_mail: {
+				return true;
+			} else if (menuId == R.id.menu_mail) {
 				sendMail();
-			} return true;
-			case R.id.menu_hint: {
+				return true;
+			} else if (menuId == R.id.menu_hint) {
 				showHint();
-			} return true;
+				return true;
 			}
 		} catch (EngineError e) {
 			FatalError(e.msg);

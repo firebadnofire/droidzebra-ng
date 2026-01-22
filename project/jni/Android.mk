@@ -54,9 +54,15 @@ LOCAL_SRC_FILES := droidzebra-jni.c \
      
 #DEFS =          -DINCLUDE_BOOKTOOL -DTEXT_BASED -DZLIB_STATIC -D__linux__ -D__CYGWIN__ -DANDROID
 DEFS =          -DZLIB_STATIC -D__linux__ -D__CYGWIN__ -DANDROID
-WARNINGS =      -Wall -Wcast-align -Wwrite-strings -Wstrict-prototypes -Winline
-OPTS =          -O4 -s -fomit-frame-pointer -falign-functions=32 -finline-limit=3200
+WARNINGS =      -Wall -Wcast-align -Wwrite-strings -Wstrict-prototypes -Winline \
+                -Wno-absolute-value -Wno-cast-align -Wno-incompatible-pointer-types \
+                -Wno-misleading-indentation -Wno-sometimes-uninitialized \
+                -Wno-strict-prototypes -Wno-tautological-compare \
+                -Wno-unneeded-internal-declaration -Wno-unused-but-set-variable \
+                -Wno-unused-const-variable -Wno-unused-function -Wno-unused-variable
+OPTS =          -O3 -s -fomit-frame-pointer -falign-functions=32 -finline-limit=3200
 LOCAL_CFLAGS += $(OPTS) $(WARNINGS) $(DEFS)
+LOCAL_LDFLAGS += -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384
 LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -lm -lz
  
 include $(BUILD_SHARED_LIBRARY)
