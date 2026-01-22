@@ -201,7 +201,7 @@ global_terminate( void ) {
 
 static void
 setup_game( const char *file_name, int *side_to_move ) {
-  char buffer[65];
+  char buffer[70];
   int i, j;
   int pos, token;
   FILE *stream;
@@ -224,7 +224,7 @@ setup_game( const char *file_name, int *side_to_move ) {
     stream = fopen( file_name, "r" );
     if ( stream == NULL )
       fatal_error( "%s '%s'\n", GAME_LOAD_ERROR, file_name );
-    fgets( buffer, 70, stream );
+    fgets( buffer, sizeof(buffer), stream );
     token = 0;
     for ( i = 1; i <= 8; i++ )
       for ( j = 1; j <= 8; j++ ) {
@@ -251,7 +251,7 @@ setup_game( const char *file_name, int *side_to_move ) {
 	token++;
       }
 
-    fgets( buffer, 10, stream );
+    fgets( buffer, sizeof(buffer), stream );
     if ( buffer[0] == 'B' )
       *side_to_move = BLACKSQ;
     else if ( buffer[0] == 'W' )
