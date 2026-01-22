@@ -12,12 +12,6 @@ android {
         targetSdk 35
         versionCode 17
         versionName '1.5.3'
-
-        externalNativeBuild {
-            ndkBuild {
-                path file('../project/jni/Android.mk')
-            }
-        }
     }
 
     externalNativeBuild {
