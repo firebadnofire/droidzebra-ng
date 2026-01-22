@@ -348,7 +348,19 @@ public class StatusView extends View {
 	
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+		int measuredWidth = MeasureSpec.getSize(widthMeasureSpec);
+		int measuredHeight = MeasureSpec.getSize(heightMeasureSpec);
+		int maxHeightPx = (int)TypedValue.applyDimension(
+				TypedValue.COMPLEX_UNIT_DIP,
+				480,
+				getResources().getDisplayMetrics());
+		int maxHeight = (int)Math.min(measuredWidth * 0.8f, maxHeightPx);
+		if(measuredHeight > 0) {
+			measuredHeight = Math.min(measuredHeight, maxHeight);
+		} else {
+			measuredHeight = Math.max(getSuggestedMinimumHeight(), maxHeight);
+		}
+		setMeasuredDimension(measuredWidth, measuredHeight);
 	}
 
 	@Override
