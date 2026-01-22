@@ -1047,10 +1047,19 @@ init_coeffs( void ) {
 
 static long long int
 rdtsc( void ) {
-#if defined(__GNUC__)
-  long long a;
-  asm volatile("rdtsc":"=A" (a));
-  return a;
+#if defined(__i386__)
+  unsigned long long a;
+  asm volatile("rdtsc" : "=A" (a));
+  return (long long)a;
+#elif defined(__x86_64__)
+  unsigned int lo;
+  unsigned int hi;
+  asm volatile("rdtsc" : "=a" (lo), "=d" (hi));
+  return ((long long)hi << 32) | lo;
+#elif defined(__aarch64__)
+  unsigned long long cnt;
+  asm volatile("mrs %0, cntvct_el0" : "=r" (cnt));
+  return (long long)cnt;
 #else
   return 0;
 #endif
