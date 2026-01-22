@@ -18,6 +18,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 #include "droidzebra-json.h"
 
 jobject droidzebra_json_create(JNIEnv* env, const char* str)
@@ -112,7 +113,7 @@ char* droidzebra_json_get_string(JNIEnv* env, jobject json, const char* key, cha
 		jobject obj_str;
 		jobject keyobj = (*env)->NewStringUTF(env, key);
 
-		obj_str = (*env)->CallObjectMethod(env, json, mid, (*env)->NewStringUTF(env, keyobj));
+		obj_str = (*env)->CallObjectMethod(env, json, mid, keyobj);
 		if ((*env)->ExceptionCheck(env)) return NULL;
 
 		str = (*env)->GetStringUTFChars(env, obj_str, NULL);
