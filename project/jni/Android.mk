@@ -62,6 +62,7 @@ WARNINGS =      -Wall -Wcast-align -Wwrite-strings -Wstrict-prototypes -Winline 
                 -Wno-unused-const-variable -Wno-unused-function -Wno-unused-variable
 OPTS =          -O3 -s -fomit-frame-pointer -falign-functions=32 -finline-limit=3200
 LOCAL_CFLAGS += $(OPTS) $(WARNINGS) $(DEFS)
+LOCAL_LDFLAGS += -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384
 LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -lm -lz
  
 include $(BUILD_SHARED_LIBRARY)
