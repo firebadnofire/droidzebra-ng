@@ -25,12 +25,12 @@ import com.shurik.droidzebra.ZebraEngine.CandidateMove;
 import com.shurik.droidzebra.ZebraEngine.Move;
 import com.shurik.droidzebra.ZebraEngine.PlayerInfo;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
