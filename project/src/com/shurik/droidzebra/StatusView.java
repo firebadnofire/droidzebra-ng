@@ -37,7 +37,7 @@ public class StatusView extends View {
 		DrawElement(int id) {
 			mID = id;
 		}
-		abstract void prepareDraw(float scaleW, float scaleH, Paint p);
+		abstract void prepareDraw(float scaleW, float scaleH, float offsetX, float offsetY, Paint p);
 		abstract public void draw(Canvas c, Paint p);
 		abstract public RectF getScreenRectF();
 		void invalidate() {
@@ -72,12 +72,12 @@ public class StatusView extends View {
 		}
 		
 		@Override
-		public void prepareDraw(float scaleW, float scaleH, Paint p) {
+		public void prepareDraw(float scaleW, float scaleH, float offsetX, float offsetY, Paint p) {
 			mScreenColor = getResources().getColor(mRColor);
-			mScreenXstart = mXstart*scaleW;
-			mScreenYstart = mYstart*scaleH;
-			mScreenXend	= mXend*scaleW;
-			mScreenYend = mYend*scaleH;
+			mScreenXstart = offsetX + mXstart*scaleW;
+			mScreenYstart = offsetY + mYstart*scaleH;
+			mScreenXend	= offsetX + mXend*scaleW;
+			mScreenYend = offsetY + mYend*scaleH;
 		}		
 
 		@Override public void draw(Canvas c, Paint p) {
@@ -87,7 +87,7 @@ public class StatusView extends View {
 		
 		@Override
 		public RectF getScreenRectF() {
-			return new RectF(mXstart, mYstart, mXend, mYend);
+			return new RectF(mScreenXstart, mScreenYstart, mScreenXend, mScreenYend);
 		}
 	};
 	
@@ -130,8 +130,12 @@ public class StatusView extends View {
 		}
 
 		@Override
-		public void prepareDraw(float scaleW, float scaleH, Paint p) {
-			mScreenBounds = new RectF(mXstart*scaleW, mYstart*scaleH, mXend*scaleW, mYend*scaleH);
+		public void prepareDraw(float scaleW, float scaleH, float offsetX, float offsetY, Paint p) {
+			mScreenBounds = new RectF(
+					offsetX + mXstart*scaleW,
+					offsetY + mYstart*scaleH,
+					offsetX + mXend*scaleW,
+					offsetY + mYend*scaleH);
 			mScreenColor = getResources().getColor(mRColor);
 				
 			mScreenTextSize = mScreenBounds.height()*0.8f; 
@@ -301,7 +305,7 @@ public class StatusView extends View {
 		if( de!=null ) {
 			de.setText(text);
 			if( getWidth()>0 && getHeight()>0 ) {
-				de.prepareDraw(getWidth()-1, getHeight()-1, mPaint);
+				recalculateLayout(getWidth()-1, getHeight()-1);
 				de.invalidate();
 			}
 		}
@@ -341,28 +345,17 @@ public class StatusView extends View {
 	
 	private void recalculateLayout(float width, float height)
 	{
-		for(DrawElement elem:mLayout) {
-			elem.prepareDraw(width, height, mPaint);
-		}
-	}
-	
-	@Override
-	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-		int measuredWidth = MeasureSpec.getSize(widthMeasureSpec);
-		int measuredHeight = MeasureSpec.getSize(heightMeasureSpec);
-		int maxHeightPx = (int)TypedValue.applyDimension(
+		float maxHeightPx = TypedValue.applyDimension(
 				TypedValue.COMPLEX_UNIT_DIP,
 				480,
 				getResources().getDisplayMetrics());
-		int maxHeight = (int)Math.min(measuredWidth * 0.8f, maxHeightPx);
-		if(measuredHeight > 0) {
-			measuredHeight = Math.min(measuredHeight, maxHeight);
-		} else {
-			measuredHeight = Math.max(getSuggestedMinimumHeight(), maxHeight);
+		float layoutHeight = Math.min(height, Math.min(width * 0.8f, maxHeightPx));
+		float offsetY = (height - layoutHeight) / 2f;
+		for(DrawElement elem:mLayout) {
+			elem.prepareDraw(width, layoutHeight, 0f, offsetY, mPaint);
 		}
-		setMeasuredDimension(measuredWidth, measuredHeight);
 	}
-
+	
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		if( w>0 && h>0 ) {
