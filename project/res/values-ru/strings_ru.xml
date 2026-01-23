@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">Максимальная глубина поиска при анализе позиции. Определяет силу игры программы. </string>
     <string name="settings_strength_preference_title">Глубина поиска</string>
     <string name="settings_strength_dialog_title">Глубина поиска</string>
-    <string name="app_name">droidzebra-ng</string>
+    <string name="app_name">DroidZebra-ng</string>
 
 <string name="settings_engine_preferences">Настройки программы</string>
 

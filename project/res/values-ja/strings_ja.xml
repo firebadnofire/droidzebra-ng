@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">コンピュータの強さ: コンピュータの読みの深さを設定</string>
     <string name="settings_strength_preference_title">読みの深さ</string>
     <string name="settings_strength_dialog_title">読みの深さ</string>
-    <string name="app_name">droidzebra-ng</string>
+    <string name="app_name">DroidZebra-ng</string>
 
 <string name="settings_engine_preferences">対局設定</string>
 

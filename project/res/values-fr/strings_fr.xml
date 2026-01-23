@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">Force de jeu: nombre de coups analysés par le programme</string>
     <string name="settings_strength_preference_title">Profondeur d\'analyse</string>
     <string name="settings_strength_dialog_title">Choix</string>
-    <string name="app_name">droidzebra-ng</string>
+    <string name="app_name">DroidZebra-ng</string>
 	<string name="settings_engine_preferences">Réglages du moteur de jeu</string>
 	<string name="gameover_text_white_wins">Blanc a gagné</string>
 	<string name="gameover_text_black_wins">Noir a gagné</string>

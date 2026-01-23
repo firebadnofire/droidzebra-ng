@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">Engine strength: number of moves computer will analyze while playing</string>
     <string name="settings_strength_preference_title">Search Depth</string>
     <string name="settings_strength_dialog_title">Choose One</string>
-    <string name="app_name">droidzebra-ng</string>
+    <string name="app_name">DroidZebra-ng</string>
 
 <string name="settings_engine_preferences">Engine Preferences</string>
 
