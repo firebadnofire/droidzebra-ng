@@ -15,15 +15,15 @@
 	along with DroidZebra.  If not, see <http://www.gnu.org/licenses/>
 */
 
-package com.shurik.droidzebra;
+package org.archuser.droidzebra_ng;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import com.shurik.droidzebra.ZebraEngine;
-import com.shurik.droidzebra.ZebraEngine.CandidateMove;
-import com.shurik.droidzebra.ZebraEngine.Move;
-import com.shurik.droidzebra.ZebraEngine.PlayerInfo;
+import org.archuser.droidzebra_ng.ZebraEngine;
+import org.archuser.droidzebra_ng.ZebraEngine.CandidateMove;
+import org.archuser.droidzebra_ng.ZebraEngine.Move;
+import org.archuser.droidzebra_ng.ZebraEngine.PlayerInfo;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;

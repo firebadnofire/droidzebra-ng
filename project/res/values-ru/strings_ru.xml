@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">Максимальная глубина поиска при анализе позиции. Определяет силу игры программы. </string>
     <string name="settings_strength_preference_title">Глубина поиска</string>
     <string name="settings_strength_dialog_title">Глубина поиска</string>
-    <string name="app_name">DroidZebra</string>
+    <string name="app_name">DroidZebra-ng</string>
 
 <string name="settings_engine_preferences">Настройки программы</string>
 
@@ -69,8 +69,8 @@
 <string name="display_depth" formatted="false">Mid: %d  Exact: %d  W/L: %d</string>
 <string name="settings_title">Настройки</string>
 <string name="dialog_donate_share">Пошли другу</string>
-<string name="donate_share_text">DroidZebra Reversi for Android - https://play.google.com/store/apps/details?id=com.shurik.droidzebra</string>
-<string name="mail_generated">Сгенерировано с помощью DroidZebra (https://play.google.com/store/apps/details?id=com.shurik.droidzebra)</string>
+<string name="donate_share_text">DroidZebra Reversi for Android - https://play.google.com/store/apps/details?id=org.archuser.droidzebra_ng</string>
+<string name="mail_generated">Сгенерировано с помощью DroidZebra (https://play.google.com/store/apps/details?id=org.archuser.droidzebra_ng)</string>
 <string name="mail_date">Дата:</string>
 <string name="mail_move">Последовательность ходов:</string>
 <string name="mail_url">Веб-страница:</string>

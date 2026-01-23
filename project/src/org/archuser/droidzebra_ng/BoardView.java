@@ -14,11 +14,11 @@
 	You should have received a copy of the GNU General Public License
 	along with DroidZebra.  If not, see <http://www.gnu.org/licenses/>
 */
-package com.shurik.droidzebra;
+package org.archuser.droidzebra_ng;
 
-import com.shurik.droidzebra.ZebraEngine.CandidateMove;
-import com.shurik.droidzebra.ZebraEngine.InvalidMove;
-import com.shurik.droidzebra.ZebraEngine.Move;
+import org.archuser.droidzebra_ng.ZebraEngine.CandidateMove;
+import org.archuser.droidzebra_ng.ZebraEngine.InvalidMove;
+import org.archuser.droidzebra_ng.ZebraEngine.Move;
 
 import android.content.Context;
 import android.content.res.Resources;

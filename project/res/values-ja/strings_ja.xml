@@ -36,7 +36,7 @@
     <string name="setting_strength_preference_summary">コンピュータの強さ: コンピュータの読みの深さを設定</string>
     <string name="settings_strength_preference_title">読みの深さ</string>
     <string name="settings_strength_dialog_title">読みの深さ</string>
-    <string name="app_name">DroidZebra</string>
+    <string name="app_name">DroidZebra-ng</string>
 
 <string name="settings_engine_preferences">対局設定</string>
 
@@ -69,8 +69,8 @@
 <string name="display_depth" formatted="false">Mid: %d  Exact: %d  W/L: %d</string>
 <string name="settings_title">設定</string>
 <string name="dialog_donate_share">友達とシェア</string>
-<string name="donate_share_text">DroidZebra Reversi for Android - https://play.google.com/store/apps/details?id=com.shurik.droidzebra</string>
-<string name="mail_generated">作成：DroidZebra (https://play.google.com/store/apps/details?id=com.shurik.droidzebra)</string>
+<string name="donate_share_text">DroidZebra Reversi for Android - https://play.google.com/store/apps/details?id=org.archuser.droidzebra_ng</string>
+<string name="mail_generated">作成：DroidZebra (https://play.google.com/store/apps/details?id=org.archuser.droidzebra_ng)</string>
 <string name="mail_date">日付:</string>
 <string name="mail_move">棋譜:</string>
 <string name="mail_url">Game URL:</string>

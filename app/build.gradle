@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.shurik.droidzebra'
+    namespace 'org.archuser.droidzebra_ng'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.shurik.droidzebra'
+        applicationId 'org.archuser.droidzebra_ng'
         minSdk 24
         targetSdk 35
         versionCode 17

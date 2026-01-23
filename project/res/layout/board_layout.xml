@@ -7,7 +7,7 @@
   android:orientation="vertical"
   android:paddingBottom="8dp">
 
- <com.shurik.droidzebra.BoardView
+ <org.archuser.droidzebra_ng.BoardView
             android:id="@+id/board"
             android:layout_width="fill_parent"
             android:layout_height="0dp" 
@@ -28,7 +28,7 @@
 > 
 
 	<view
-	class="com.shurik.droidzebra.StatusView" 
+	class="org.archuser.droidzebra_ng.StatusView" 
 	android:focusable="false"
 	android:id="@+id/status_panel" 
 	android:layout_width="fill_parent" 
