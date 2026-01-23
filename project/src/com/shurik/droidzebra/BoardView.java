@@ -355,15 +355,25 @@ public class BoardView extends View {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-		mSizeX = mSizeY = Math.min(getMeasuredWidth(), getMeasuredHeight());
+		int measuredWidth = getMeasuredWidth();
+		int measuredHeight = getMeasuredHeight();
+		setMeasuredDimension(measuredWidth, measuredHeight);
+
+		float contentWidth = measuredWidth - getPaddingLeft() - getPaddingRight();
+		float contentHeight = measuredHeight - getPaddingTop() - getPaddingBottom();
+		mSizeX = Math.max(0, contentWidth);
+		mSizeY = Math.max(0, contentHeight);
 		mSizeCell = Math.min(mSizeX/(DroidZebra.boardSize+1), mSizeY/(DroidZebra.boardSize+1));
 		lineWidth = Math.max(1f, mSizeCell/40f);
 		gridCirclesRadius = Math.max(3f, mSizeCell/13f);
+		float requiredSize = mSizeCell * (DroidZebra.boardSize + 1);
+		float offsetX = getPaddingLeft() + (mSizeX - requiredSize) / 2f;
+		float offsetY = getPaddingTop() + (mSizeY - requiredSize) / 2f;
 		mBoardRect.set(
-				mSizeX-mSizeCell/2-mSizeCell*DroidZebra.boardSize,
-				mSizeY-mSizeCell/2-mSizeCell*DroidZebra.boardSize,
-				mSizeX-mSizeCell/2,
-				mSizeY-mSizeCell/2
+				offsetX + mSizeCell/2,
+				offsetY + mSizeCell/2,
+				offsetX + mSizeCell/2 + mSizeCell*DroidZebra.boardSize,
+				offsetY + mSizeCell/2 + mSizeCell*DroidZebra.boardSize
 			);
 
 		mPaint.reset();
@@ -388,7 +398,6 @@ public class BoardView extends View {
 		mPaintEvalText.setStrokeWidth(lineWidth);
 		mEvalFontMetrics = mPaintEvalText.getFontMetrics();
 
-		setMeasuredDimension((int)mSizeX, (int)mSizeY);
 	}
 
 	@Override
