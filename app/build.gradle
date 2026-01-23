@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'org.archuser.droidzebra-ng'
+    namespace 'org.archuser.droidzebra_ng'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'org.archuser.droidzebra-ng'
+        applicationId 'org.archuser.droidzebra_ng'
         minSdk 24
         targetSdk 35
         versionCode 17
