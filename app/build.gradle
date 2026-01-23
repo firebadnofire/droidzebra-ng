@@ -4,14 +4,14 @@ plugins {
 
 android {
     namespace 'org.archuser.droidzebra_ng'
-    compileSdk 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId 'org.archuser.droidzebra_ng'
         minSdk 24
-        targetSdk 35
-        versionCode 17
-        versionName '1.5.3'
+        targetSdk = 36
+        versionCode 18
+        versionName '1.5.4'
     }
 
     externalNativeBuild {
