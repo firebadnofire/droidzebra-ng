@@ -7,7 +7,7 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-feature android:required="false" android:name="android.hardware.touchscreen"></uses-feature>
 	<application android:label="@string/app_name" android:icon="@drawable/icon" android:allowBackup="true" android:theme="@style/CustomActionBarTheme">
-        <activity android:name=".DroidZebra"
+        <activity android:name="org.archuser.droidzebra_ng.DroidZebra"
         		  android:label="@string/app_name" android:configChanges="keyboardHidden|orientation" android:screenOrientation="portrait" android:multiprocess="false" android:launchMode="singleTask"
                   android:exported="true">
             <intent-filter>
@@ -15,6 +15,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    	<activity android:name=".SettingsPreferences" android:label="@string/settings_title" android:screenOrientation="portrait" android:multiprocess="false" android:launchMode="standard" android:stateNotNeeded="true" android:noHistory="false" android:allowTaskReparenting="false"></activity>
+    	<activity android:name="org.archuser.droidzebra_ng.SettingsPreferences" android:label="@string/settings_title" android:screenOrientation="portrait" android:multiprocess="false" android:launchMode="standard" android:stateNotNeeded="true" android:noHistory="false" android:allowTaskReparenting="false"></activity>
 	</application>
 </manifest> 
