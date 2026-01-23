@@ -75,7 +75,7 @@ static int s_undo_stack[64];
 static int s_undo_stack_pointer = 0;
 // --
 
-#define JNIFn(Package, Class, Fname) JNICALL Java_com_shurik_##Package##_##Class##_##Fname
+#define JNIFn(Package, Class, Fname) JNICALL Java_org_archuser_droidzebra_1ng_##Class##_##Fname
 
 // these are only for callback function:
 // first outer JNI call stores the environment that will be used by callback function
@@ -797,7 +797,7 @@ void _droidzebra_compute_evals(int side_to_move)
 
 void _droidzebra_throw_engine_error(JNIEnv* env, const char* msg)
 {
-    jclass exc = (*env)->FindClass(env, "com/shurik/droidzebra/EngineError");
+    jclass exc = (*env)->FindClass(env, "org/archuser/droidzebra_ng/EngineError");
     if(exc) (*env)->ThrowNew(env, exc, msg);
 }
 
@@ -822,4 +822,3 @@ int _droidzebra_can_redo(void)
 {
 	return s_undo_stack_pointer>0;
 }
-

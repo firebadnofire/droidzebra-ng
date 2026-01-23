@@ -1,4 +1,4 @@
-package com.shurik.droidzebra;
+package org.archuser.droidzebra_ng;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,13 +12,13 @@ import android.test.ActivityInstrumentationTestCase2;
  * <p/>
  * To run this test, you can type:
  * adb shell am instrument -w \
- * -e class com.shurik.droidzebra.DroidZebraTest \
- * com.shurik.droidzebra.tests/android.test.InstrumentationTestRunner
+ * -e class org.archuser.droidzebra_ng.DroidZebraTest \
+ * org.archuser.droidzebra_ng.tests/android.test.InstrumentationTestRunner
  */
 public class DroidZebraTest extends ActivityInstrumentationTestCase2<DroidZebra> {
 
     public DroidZebraTest() {
-        super("com.shurik.droidzebra", DroidZebra.class);
+        super("org.archuser.droidzebra_ng", DroidZebra.class);
     }
 
     
