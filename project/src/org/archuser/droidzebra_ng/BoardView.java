@@ -218,11 +218,17 @@ public class BoardView extends View {
 		canvas.drawCircle(mBoardRect.left+6*mSizeCell, mBoardRect.top+6*mSizeCell, gridCirclesRadius, mPaint);
 
 		// draw guides
-		float topLabelCenter = mBoardRect.top / 2f;
+		mPaint.setTextSize(mSizeCell*0.3f);
+		mFontMetrics = mPaint.getFontMetrics();
 		float textHalfHeight = (mFontMetrics.descent - mFontMetrics.ascent) / 2f;
-		topLabelCenter = Math.max(textHalfHeight, Math.min(topLabelCenter, mBoardRect.top - textHalfHeight));
+		float topMargin = mBoardRect.top - getPaddingTop();
+		float topLabelCenter;
+		if(topMargin >= textHalfHeight * 2f) {
+			topLabelCenter = getPaddingTop() + topMargin / 2f;
+		} else {
+			topLabelCenter = mBoardRect.top + textHalfHeight + lineWidth;
+		}
 		for(int i = 0; i<DroidZebra.boardSize; i++ ) {
-			mPaint.setTextSize(mSizeCell*0.3f);
 			mPaint.setColor(Color.BLACK);
 			canvas.drawText(String.valueOf(i+1), mBoardRect.left/2 + 1, mBoardRect.top + i*mSizeCell + mSizeCell/2 - (mFontMetrics.ascent+mFontMetrics.descent)/2 + 1, mPaint);
 			canvas.drawText(Character.toString((char) ('A'+i)), mBoardRect.left + i*mSizeCell + mSizeCell/2 + 1, topLabelCenter-(mFontMetrics.ascent+mFontMetrics.descent)/2 + 1, mPaint);
