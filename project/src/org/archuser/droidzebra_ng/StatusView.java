@@ -15,7 +15,7 @@
 	along with DroidZebra.  If not, see <http://www.gnu.org/licenses/>
 */
 
-package com.shurik.droidzebra;
+package org.archuser.droidzebra_ng;
 
 import java.util.TreeMap;
 

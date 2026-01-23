@@ -1,10 +1,16 @@
-# DroidZebra (Android)
+# DroidZebra-ng (Android)
 
 DroidZebra is a graphical front-end for the Zebra Othello/Reversi engine by Gunnar Andersson. This repository is a fork of the original GPLv3 project:
 
 - Upstream source: https://github.com/alkom/droidzebra
 
 All new contributions in this fork are released under the same GPLv3 license as the original project.
+
+## Purpose
+
+The purpose of this repo is to produce a modern APK of the original project. To achieve this goal, I used OpenAI Codex to modernize the build chain.
+
+As of now, this repo has been tested on a deGoogled Pixel 9 and installs as expected with no issues at runtime.
 
 ## Android Studio (Gradle)
 
