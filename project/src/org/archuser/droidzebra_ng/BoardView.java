@@ -218,14 +218,17 @@ public class BoardView extends View {
 		canvas.drawCircle(mBoardRect.left+6*mSizeCell, mBoardRect.top+6*mSizeCell, gridCirclesRadius, mPaint);
 
 		// draw guides
+		float topLabelCenter = mBoardRect.top / 2f;
+		float textHalfHeight = (mFontMetrics.descent - mFontMetrics.ascent) / 2f;
+		topLabelCenter = Math.max(textHalfHeight, Math.min(topLabelCenter, mBoardRect.top - textHalfHeight));
 		for(int i = 0; i<DroidZebra.boardSize; i++ ) {
 			mPaint.setTextSize(mSizeCell*0.3f);
 			mPaint.setColor(Color.BLACK);
 			canvas.drawText(String.valueOf(i+1), mBoardRect.left/2 + 1, mBoardRect.top + i*mSizeCell + mSizeCell/2 - (mFontMetrics.ascent+mFontMetrics.descent)/2 + 1, mPaint);
-			canvas.drawText(Character.toString((char) ('A'+i)), mBoardRect.left + i*mSizeCell + mSizeCell/2 + 1, mBoardRect.top/2-(mFontMetrics.ascent+mFontMetrics.descent)/2 + 1, mPaint);
+			canvas.drawText(Character.toString((char) ('A'+i)), mBoardRect.left + i*mSizeCell + mSizeCell/2 + 1, topLabelCenter-(mFontMetrics.ascent+mFontMetrics.descent)/2 + 1, mPaint);
 			mPaint.setColor(mColorNumbers);
 			canvas.drawText(String.valueOf(i+1), mBoardRect.left/2, mBoardRect.top + i*mSizeCell + mSizeCell/2 - (mFontMetrics.ascent+mFontMetrics.descent)/2, mPaint);
-			canvas.drawText(Character.toString((char) ('A'+i)), mBoardRect.left + i*mSizeCell + mSizeCell/2, mBoardRect.top/2-(mFontMetrics.ascent+mFontMetrics.descent)/2, mPaint);
+			canvas.drawText(Character.toString((char) ('A'+i)), mBoardRect.left + i*mSizeCell + mSizeCell/2, topLabelCenter-(mFontMetrics.ascent+mFontMetrics.descent)/2, mPaint);
 		}
 
 		// draw helpers for move selector
